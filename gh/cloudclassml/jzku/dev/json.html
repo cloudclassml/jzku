@@ -1,0 +1,82 @@
+最新的 Xiuno BBS 4.0 git 版本已经加入了全站的 JSON 数据返回支持，方便 APP 或者其他接口调用。
+
+只需要传入参数 ajax=1 或者直接通过 ajax 请求。
+
+
+
+开放的接口如下，分为 GET/POST 两大类：
+
+
+
+GET：
+
+最新主题：/index-{page}.htm
+
+最新精华：/index-{page}-1.htm
+
+版块最新主题：/forum-{fid}-{page}.htm
+
+版块精华主题：/forum-{fid}-{page}-1.htm
+
+用户最新主题：/user-{uid}-{page}.htm
+
+用户精华主题：/user-{uid}-{page}-1.htm
+
+我的最新主题：/my-thread-{page}.htm
+
+我的精华主题：/my-thread-{page}-1.htm
+
+主题+回帖列表：/thread-{tid}-{page}.htm
+
+搜索：/search-{keyword}.htm
+
+
+POST：
+
+用户登录：/user-login.htm
+
+email, password（md5 过以后的值）
+
+
+用户注册：/user-create.htm
+email, username, password（md5 过以后的值）
+
+
+
+统一返回 JSON 格式：
+
+{code: 0, message: "登录成功"}
+
+{code: -1, message: "登录失败"}
+{code: 'username', message: "用户名错误"}
+
+{code: 0, message: {"key": "value"}}
+
+
+
+注意：
+
+code: 0 表示成功，-1 表示失败，其他值表示错误代码。
+
+
+实例代码：
+
+js 调用：
+
+<script>
+$.xget("forum-1.htm", function(code, message) {
+         console.log(message);
+});
+</script>
+
+
+PHP 调用：
+
+<?php
+$s = file_get_contents("http://bbs.xiuno.com/forum-1.htm?ajax=1");
+$arr = json_decode($s);
+print_r($arr);
+?>
+
+
+最新主题，精华主题调用什么的极其简单了，APP 开发读接口数据也更容易了，尽情玩耍吧。
