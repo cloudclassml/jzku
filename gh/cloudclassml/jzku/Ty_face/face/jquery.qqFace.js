@@ -16,16 +16,15 @@
 			return false;
 		}
 		
-
 		$(this).click(function(e){
 			var strFace, labFace;
 			if($('#'+id).length<=0){
-				strFace = '<div id="'+id+'" style="position:absolute;display:none;z-index:2000;" class="qqFace card iq-card">' +
+				strFace = '<div id="'+id+'" style="position:absolute;display:none;z-index:1000;" class="qqFace">' +
 							  '<table border="0" cellspacing="0" cellpadding="0"><tr>';
-				for(var i=1; i<=134; i++){
+				for(var i=1; i<=180; i++){
 					labFace = '['+tip+i+']';
-					strFace += '<td><img style="width: 24px;" src="'+path+i+'.png" onclick="$(\'html\').find(\'iframe\').contents().find(\'body\').append(\''+ labFace +'\');" /></td>';
-					if( i % 8 == 0 ) strFace += '</tr><tr>';
+					strFace += '<td><img style="width: 24px;" src="'+path+i+'.gif" onclick="$(\'#'+option.assign+'\').insertAtCaret(\'' + labFace + '\');" /></td>';
+					if( i % 10 == 0 ) strFace += '</tr><tr>';
 				}
 				strFace += '</tr></table></div>';
 			}
@@ -82,9 +81,15 @@ jQuery.fn.extend({
 		$(this).click(initSetCaret).select(initSetCaret).keyup(initSetCaret); 
 	}, 
 
-	insertAtCaret: function(textFeildValue){ 
+	insertAtCaret: function(textFeildValue){
+		
+if(typeof(tinymce)!='undefined'){tinymce.activeEditor.insertContent(textFeildValue);}
+else if(typeof(KindEditor)!='undefined'){KindEditor.insertHtml('#message',textFeildValue);}
+else if(typeof(UE)!='undefined'){UE.getEditor('message').execCommand('insertHtml',textFeildValue);}
+else if(typeof(UM)!='undefined'){UM.getEditor('message').execCommand('insertHtml',textFeildValue);}
+else{
 		var textObj = $(this).get(0); 
-		if(document.getElementsByTagName("*") && textObj.createTextRange && textObj.caretPos){ 
+		if(document.all && textObj.createTextRange && textObj.caretPos){ 
 			var caretPos=textObj.caretPos; 
 			caretPos.text = caretPos.text.charAt(caretPos.text.length-1) == '' ? 
 			textFeildValue+'' : textFeildValue; 
@@ -101,5 +106,6 @@ jQuery.fn.extend({
 		}else{ 
 			textObj.value+=textFeildValue; 
 		} 
+}
 	} 
 });
