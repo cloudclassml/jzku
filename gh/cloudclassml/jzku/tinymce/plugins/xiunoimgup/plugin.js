@@ -7,7 +7,7 @@ tinymce.PluginManager.add("xiunoimgup", function(editor, url) {
         input.setAttribute('multiple', 'multiple');
         input.setAttribute('accept', 'image/*');
         input.setAttribute('style', 'display:none');
-        postform.appendChild(input); 
+        postform.appendChild(input); 
         input.addEventListener("change", function(e) {
             var files = this.files;
             $.each_sync(files, function(i, callback) {
@@ -16,7 +16,7 @@ tinymce.PluginManager.add("xiunoimgup", function(editor, url) {
                     is_image: 1
                 }, function(code, json) {
                     if (code == 0) {
-                        var s = '<img src="' + json.url + '" width="' + json.width + '" height=\"' + json.height + '\" />';
+                        var s = '<img src="' + json.url + '" width="' + json.width + '" height=\"' + json.height + '\" /><p>&nbsp;</p>';
                         editor.insertContent(s);
                     } else {
                         console.log('上传失败\n');
