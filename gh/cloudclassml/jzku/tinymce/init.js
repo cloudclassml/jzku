@@ -97,7 +97,7 @@ tinymce.init({
     paste_remove_spans: true,
     paste_remove_styles: true,
     convert_fonts_to_spans: true,
-    extended_valid_elements: 'span[style|class],b,i', // 保留span/b/i标签
+    extended_valid_elements: 'span[style|class],b,i,img', // 保留span/b/i标签
     paste_remove_styles_if_webkit: true, // 禁用webkit粘贴过滤器，保留style样式，如果不想保留可选择后点击【清除样式】
     // forced_root_block : '', // 去掉换行自动加P（可以确保非块元素包含在块元素中），改为使用br换行
     // skin: 'oxide-dark',  // 设置深色皮肤，默认为oxide
