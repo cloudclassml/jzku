@@ -16,11 +16,7 @@ tinymce.PluginManager.add("xiunoimgup", function(editor, url) {
                     is_image: 1
                 }, function(code, json) {
                     if (code == 0) {
-<<<<<<< HEAD
                         var s = '<img src="' + json.url + '" width="' + json.width + '" height=\"' + json.height + '\" /><br>';
-=======
-                        var s = '<img src="' + json.url + '" width="' + json.width + '" height=\"' + json.height + '\" /><p>&nbsp;<\/p>';
->>>>>>> 3442b937b0ce25001d69e19e76d4cfe17e5e1b9e
                         editor.insertContent(s);
                     } else {
                         console.log('上传失败\n');
