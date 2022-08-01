@@ -1,0 +1,148 @@
+.verified-badge {
+    display: inline-flex;
+    position: relative;
+    top: -.05em;
+    margin-left: .2em;
+    width: 1.25em;
+    height: 1.25em;
+    vertical-align: middle;
+    border-radius: 100%;
+    text-align: center;
+    color: var(--white, #fff);
+    font-size: 0.9em;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.verified-badge:before {
+    display: none !important;
+}
+
+.v_badge-square {
+    border-radius: .25em;
+}
+
+.verified-badge i {
+    font-size: 0.85em;
+    font-style: initial;
+}
+
+.v_badge-bg-blue {
+    background-color: var(--blue);
+}
+
+.v_badge-bg-indigo {
+    background-color: var(--indigo);
+}
+
+.v_badge-bg-purple {
+    background-color: var(--purple);
+}
+
+.v_badge-bg-pink {
+    background-color: var(--pink);
+}
+
+.v_badge-bg-red {
+    background-color: var(--red);
+}
+
+.v_badge-bg-orange {
+    background-color: var(--orange);
+}
+
+.v_badge-bg-yellow {
+    background-color: var(--yellow);
+}
+
+.v_badge-bg-green {
+    background-color: var(--green);
+}
+
+.v_badge-bg-teal {
+    background-color: var(--teal);
+}
+
+.v_badge-bg-cyan {
+    background-color: var(--cyan);
+}
+
+.v_badge-bg-primary {
+    background-color: var(--primary);
+}
+
+.v_badge-bg-secondary {
+    background-color: var(--secondary);
+}
+
+.v_badge-bg-success {
+    background-color: var(--success);
+}
+
+.v_badge-bg-info {
+    background-color: var(--info);
+}
+
+.v_badge-bg-warning {
+    background-color: var(--warning);
+}
+
+.v_badge-bg-danger {
+    background-color: var(--danger);
+}
+
+.v_badge-bg-rainbow {
+    background: linear-gradient(100deg, #ffe43c 0% 20%, #00f5d4 20% 40%, #01beff 40% 60%, #9a5ce5 60% 80%, #f15bb5 80% 100%);
+}
+
+.v_badge-bg-rainbow>*,
+.v_badge-bg-warning>*,
+.v_badge-bg-yellow>* {
+    text-shadow: 0 .1em .05em rgba(0, 0, 0, .25);
+}
+
+/* */
+#v_select_form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#v_select_form label {
+    text-align: center;
+    padding: 0 .5rem;
+    flex: 1 0 100%;
+}
+
+@media (min-width:768px) {
+    #v_select_form label {
+        flex: 1 0 33.33%;
+    }
+}
+
+#v_select_form input[type="radio"] {
+    display: none;
+}
+
+#v_select_form .card {
+    padding: .5rem;
+    border: 1px solid var(--light);
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#v_select_form input[type="radio"]:checked~.card {
+    color: var(--white, #fff);
+    background-color: var(--primary);
+}
+
+#v_select_form input[type="radio"]:checked~.card h4 {
+    font-weight: bolder;
+}
+
+#v_select_form .card p {
+    margin: 0;
+}
